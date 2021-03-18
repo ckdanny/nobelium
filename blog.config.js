@@ -1,9 +1,9 @@
 const BLOG = {
-  title: 'CRAIGARY',
-  author: 'Craig Hart',
-  email: 'i@craigary.net',
-  link: 'https://nobelium.vercel.app',
-  description: 'This gonna be an awesome website.',
+  title: 'Danny Chan',
+  author: 'Danny Chan',
+  email: 'danny.chan@c-k.dev',
+  link: 'https://c-k.dev',
+  description: 'My Blog.',
   lang: 'en-US',
   path: '', // leave this empty unless you want to deploy Nobelium in a folder
   since: 2021, // if leave this empty, current year will be used.
@@ -17,7 +17,7 @@ const BLOG = {
   },
   notionPageId: process.env.NOTION_PAGE_ID,
   analytics: {
-    provider: 'ga', // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.
+    provider: '', // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.
     ackeeConfig: {
       tracker: 'https://ackee.craigary.net/tracker.js', // e.g 'https://ackee.craigary.net/tracker.js'
       dataAckeeServer: 'https://ackee.craigary.net/', // e.g https://ackee.craigary.net , don't end with a slash
