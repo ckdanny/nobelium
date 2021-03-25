@@ -5,6 +5,9 @@ const BLOG = {
   link: 'https://c-k.dev',
   description: 'My Blog.',
   lang: 'en-US',
+  appearance: 'auto', // ['light', 'dark', 'auto'],
+  lightBackground: '#ffffff', // use hex value, don't forget '#' e.g #fffefc
+  darkBackground: '#111827', // use hex value, don't forget '#'
   path: '', // leave this empty unless you want to deploy Nobelium in a folder
   since: 2021, // if leave this empty, current year will be used.
   postsPerPage: 7,
@@ -39,5 +42,5 @@ const BLOG = {
     }
   }
 }
-
-export default BLOG
+// export default BLOG
+module.exports = BLOG

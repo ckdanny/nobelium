@@ -1,8 +1,11 @@
 import Container from '@/components/Container'
 import { useRouter } from 'next/router'
 import { NotionRenderer } from 'react-notion'
+import { useLocale } from '@/lib/locale'
+import BLOG from '@/blog.config'
 
 const PageLayout = ({ children, blockMap, frontMatter, showAbout }) => {
+  const locale = useLocale()
   const router = useRouter()
   return (
     <Container
@@ -13,35 +16,45 @@ const PageLayout = ({ children, blockMap, frontMatter, showAbout }) => {
       type="article"
     >
       <article>
-        <h1 className="font-sans font-bold text-3xl">{frontMatter.title}</h1>
+        <h1 className="font-sans font-bold text-3xl text-black dark:text-white">
+          {frontMatter.title}
+        </h1>
         {children}
-        {!showAbout && (
-          <main className="notion">
-            <p className="notion-text">Keep playing them songs, keep singing along</p>
-            <p className="notion-text">Keep leaning it on in closer</p>
-            <p className="notion-text">
-              Keep salting the rim, getting even with her and with him before
-              the night is over
-            </p>
-            <p className="notion-text">That first kiss was like a Colorado hit</p>
-            <p className="notion-text">We better keep on keeping it lit</p>
-            <p className="notion-text">&apos;Til we can&apos;t remember, can&apos;t remember</p>
-            <p className="notion-text">What we came here to forget</p>
-            <p className="notion-text">Came here to forget - Blake Shelton</p>
-          </main>
-        )}
-        {showAbout && blockMap && <NotionRenderer blockMap={blockMap} />}
+        <div className="text-gray-700 dark:text-gray-300">
+          {!showAbout && (
+            <main className="notion">
+              <p className="notion-text">
+                Keep playing them songs, keep singing along
+              </p>
+              <p className="notion-text">Keep leaning it on in closer</p>
+              <p className="notion-text">
+                Keep salting the rim, getting even with her and with him before
+                the night is over
+              </p>
+              <p className="notion-text">
+                That first kiss was like a Colorado hit
+              </p>
+              <p className="notion-text">We better keep on keeping it lit</p>
+              <p className="notion-text">
+                &apos;Til we can&apos;t remember, can&apos;t remember
+              </p>
+              <p className="notion-text">What we came here to forget</p>
+              <p className="notion-text">Came here to forget - Blake Shelton</p>
+            </main>
+          )}
+          {showAbout && blockMap && <NotionRenderer blockMap={blockMap} />}
+        </div>
       </article>
-      <div className="flex justify-between font-medium">
-        <p onClick={() => router.back()} className="mt-2">
-          ← Back
-        </p>
-        <p
+      <div className="flex justify-between font-medium text-black dark:text-gray-100">
+        <button onClick={() => router.push(BLOG.path || '/')} className="mt-2 cursor-pointer">
+          ← {locale.POST.BACK}
+        </button>
+        <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="mt-2"
+          className="mt-2 cursor-pointer"
         >
-          ↑ Top
-        </p>
+          ↑ {locale.POST.TOP}
+        </button>
       </div>
     </Container>
   )
